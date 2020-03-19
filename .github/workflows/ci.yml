@@ -19,4 +19,4 @@ jobs:
     - name: build
       run: cmake --build cmake-build-release
     - name: test
-      run: cd build && ctest
+      run: cd cmake-build-release && ctest
