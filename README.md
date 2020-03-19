@@ -1,0 +1,1 @@
+This is a meta-repository containing basic infrastructure and functionality for C++ projects.
