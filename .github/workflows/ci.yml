@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build-ubuntu:
+    runs-on: ubuntu-latest    
+    steps:
+    - uses: actions/checkout@v2
+    - name: configure
+      run: |
+        mkdir cmake-build-release
+        cd cmake-build-release
+        cmake -DCMAKE_BUILD_TYPE=Release ..
+    - name: build
+      run: cmake --build cmake-build-release
+    - name: test
+      run: cd build && ctest
