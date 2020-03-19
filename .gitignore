@@ -1,0 +1,7 @@
+.idea/
+.vscode/
+.vs/
+cmake-build-*/
+doxygen-build-*/
+build/
+_build/
