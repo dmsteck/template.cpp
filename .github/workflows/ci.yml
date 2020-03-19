@@ -17,6 +17,9 @@ jobs:
         cd cmake-build-release
         cmake -DCMAKE_BUILD_TYPE=Release ..
     - name: build
-      run: cmake --build cmake-build-release
+      run: |
+        cmake --build cmake-build-release
     - name: test
-      run: cd cmake-build-release && ctest
+      run: |
+        cd cmake-build-release
+        ctest
