@@ -1,3 +1,6 @@
+# Force LF endings
+* text=auto
+
 # Source files
 *.c     text diff=c
 *.cc    text diff=cpp
