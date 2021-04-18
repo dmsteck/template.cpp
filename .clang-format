@@ -63,23 +63,12 @@ IncludeBlocks: Regroup
 # The general approach for sorting includes is to start with less general (like local files) and to go more general
 # (like standard library). This allows to reveal missing immediate includes in our files that otherwise would be hidden.
 IncludeCategories:
-  # this is an exception. It brings gl3w, which must be included before other opengl headers
-  - Regex:           'gl/opengl/opengl\.h'
-    Priority:        -1
-  - Regex:           '^(<|")cloudnc/(cam|debug|internals)/' # protobuf-definitions
-    Priority:        10
   - Regex:           '^(<|")catch2/' # it's nice to have test utils together
     Priority:        15
-  - Regex:           '^(<|")(ccl|Eigen|glm|google|gvs|json|lodepng|oatpp(\-curl)?|oce)/' # thirdparty libraries
-    Priority:        16
-  - Regex:           '^(<|")imgui(_internal|(_impl_.+))?\.h(>|")' # also thirdparty, but imgui doesn't have a folder
-    Priority:        16
     # let's treat cuda as special case and make sure other thirdparties don't have implicit dependency on it
   - Regex:           '^<cuda)/'
     Priority:        18
   - Regex:           '^(<|")(boost|range|fmt)/' # these thirdparties are almost standard, let's put them separate
-    Priority:        19
-  - Regex:           'tl/expected' # same as other almost standard thirdparties
     Priority:        19
   - Regex:           '^<[a-z_]+>$' # standard library includes
     Priority:        20
